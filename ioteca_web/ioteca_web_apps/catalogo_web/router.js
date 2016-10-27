@@ -1,16 +1,11 @@
 app
-
     .provider('router', function($stateProvider) {
-
     var urlCollection;
-
     this.$get = function($http, $state) {
         return {
             setUpRoutes: function() {
                 $http.get(urlCollection).success(function(collection) {
-
-                    console.log('collection::' + JSON.stringify(collection));
-
+                    //console.log('collection::' + JSON.stringify(collection));
                     for (var routeName in collection) {
                         if (!$state.get(routeName)) {
                             $stateProvider.state(routeName, collection[routeName]);
@@ -20,7 +15,6 @@ app
             }
         };
     };
-
     this.setCollectionUrl = function(url) {
         urlCollection = url;
     };
@@ -32,65 +26,14 @@ app
         //router.setUpRoutes();
     })
     .config(function($stateProvider, $urlRouterProvider, ROUTERS2, routerProvider) {
-
-
-
-        console.log('JSON stringify::' + JSON.stringify(''));
-        /*
-        $stateProvider
-        //==================================
-        // catalogo layout base
-        //==================================
-            .state('catalogo', {
-            url: '/catalogo',
-            views: {
-                '': {
-                    templateUrl: 'app/views/layout.html'
-                },
-                'aside': {
-                    templateUrl: 'app/views/aside.html'
-                },
-                'content': {
-                    templateUrl: 'app/views/content.html'
-                }
-            }
-        });
-        
-    ROUTERSr = ROUTERS;
-    angular.forEach(ROUTERSr, function(section) {
-        //==================================
-        // catalogo catalogo page example
-        //==================================
-        $stateProvider.state(section.state, {
-            url: section.url,
-            template: '<div ui-view ></div>'
-        });
-
-        angular.forEach(section.items, function(item) {
-            //==================================
-            // url categorias, autores, etc. example
-            //==================================
-            $stateProvider.state(item.state, {
-                url: item.url,
-                data: { section: item.section, page: item.page },
-                templateUrl: item.templateUrl
-            });
-        });
-    });
-*/
         collection = ROUTERS2;
-
-
         for (var routeName in collection) {
             //if (!$state.get(routeName)) {
             $stateProvider.state(routeName, collection[routeName]); // $stateProvider.state debe generarse aqui para no perder el foco
             //}
         }
 
-
-
         //routerProvider.setCollectionUrl('routeCollection.json');
-
     })
 
 ;

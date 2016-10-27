@@ -1,5 +1,5 @@
 Servidor API REST:
-(ve_...) D:\practian o XXX\ioteca\ioteca_service>pip install -r reqs.txt
+(ve_...) D:\practian o XXX\ioteca\ioteca_service>pip install -r requirements.txt
 
 (ve_...) D:\practian o XXX\ioteca\ioteca_service>manage.py runserver 9000
 Performing system checks...
