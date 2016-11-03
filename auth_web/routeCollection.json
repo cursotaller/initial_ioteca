@@ -1,8 +1,10 @@
-{
+[{
     "xxx": {
         "url": "/xxx",
         "templateUrl": "templates/xxx.html"
     },
+
+}, {
     "catalogo": {
         "url": "/catalogo",
         "views": {
@@ -17,12 +19,11 @@
             }
         }
     },
-
     "catalogo.catalogo": {
         "url": "/catalogo",
         "template": "<div ui-view ></div>"
     },
-
+}, {
     "catalogo.catalogo.categorias": {
         "url": "/categorias",
         "data": {
@@ -47,7 +48,7 @@
         },
         "templateUrl": "ioteca_web_apps/catalogo_web/views/categorias/form.html"
     },
-
+}, {
     "catalogo.catalogo.autores": {
         "url": "/autores",
         "data": {
@@ -73,4 +74,4 @@
         "templateUrl": "ioteca_web_apps/catalogo_web/views/autores/form.html"
     }
 
-}
+}]

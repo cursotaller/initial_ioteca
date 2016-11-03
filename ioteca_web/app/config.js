@@ -24,11 +24,11 @@ app
     $rootScope.$stateParams = $stateParams;
 
     /*******************************agregado**************************/
-    console.log("run");
+    //console.log("run");
 
     authService.fillAuthData();
     if (authService.authentication.isAuth === false) {
-        $window.location = loginUrl;
+        //$window.location = loginUrl;
     }
     /******************************************************************/
 
@@ -68,7 +68,113 @@ angular.module('app').config(function($mdDateLocaleProvider) {
         $mdIconProvider
             .icon('md-close', $$mdSvgRegistry.mdClose)
             .icon('md-menu', $$mdSvgRegistry.mdMenu)
-            .icon('md-toggle-arrow', $$mdSvgRegistry.mdToggleArrow) ;
+            .icon('md-toggle-arrow', $$mdSvgRegistry.mdToggleArrow);
     }
-)
-;
+);
+
+
+
+app.constant('ROUTERS_T', [{
+    "estado.nombre.1": {
+        "url": "/url",
+        "data": {
+            "section": "Menu name",
+            "page": "Menu item name"
+        },
+        "templateUrl": "appname_web_apps/appname_web/views/model/index.html"
+    }
+
+}, {
+    "estado.nombre.2": {
+        "url": "/url2",
+        "data": {
+            "section": "Menu name2",
+            "page": "Menu item name2"
+        },
+        "templateUrl": "appname_web_apps/appname_web/views/model2/index.html"
+    }
+
+}]);
+
+
+app.constant('ROUTERS', [{
+    "estado.nombre": {
+        "url": "/url",
+        "data": {
+            "section": "Menu name",
+            "page": "Menu item name"
+        },
+        "templateUrl": "appname_web_apps/appname_web/views/model/index.html"
+    },
+
+}, {
+    "catalogo": {
+        "url": "/catalogo",
+        "views": {
+            "": {
+                "templateUrl": "app/views/layout.html"
+            },
+            "aside": {
+                "templateUrl": "app/views/aside.html"
+            },
+            "content": {
+                "templateUrl": "app/views/content.html"
+            }
+        }
+    },
+    "catalogo.catalogo": {
+        "url": "/catalogo",
+        "template": "<div ui-view ></div>"
+    }
+}, {
+    "catalogo.catalogo.categorias": {
+        "url": "/categorias",
+        "data": {
+            "section": "Catálogo",
+            "page": "Categorías"
+        },
+        "templateUrl": "ioteca_web_apps/catalogo_web/views/categorias/index.html"
+    },
+    "catalogo.catalogo.categoriasNew": {
+        "url": "/categorias/new",
+        "data": {
+            "section": "Catálogo",
+            "page": "Categorías"
+        },
+        "templateUrl": "ioteca_web_apps/catalogo_web/views/categorias/form.html"
+    },
+    "catalogo.catalogo.categoriasEdit": {
+        "url": "/categorias/:id/edit",
+        "data": {
+            "section": "Catálogo",
+            "page": "Categorías"
+        },
+        "templateUrl": "ioteca_web_apps/catalogo_web/views/categorias/form.html"
+    }
+}, {
+    "catalogo.catalogo.autores": {
+        "url": "/autores",
+        "data": {
+            "section": "Catálogo",
+            "page": "Autores"
+        },
+        "templateUrl": "ioteca_web_apps/catalogo_web/views/autores/index.html"
+    },
+    "catalogo.catalogo.autoresNew": {
+        "url": "/autores/new",
+        "data": {
+            "section": "Catálogo",
+            "page": "Autores"
+        },
+        "templateUrl": "ioteca_web_apps/catalogo_web/views/autores/form.html"
+    },
+    "catalogo.catalogo.autoresEdit": {
+        "url": "/autores/:id/edit",
+        "data": {
+            "section": "Catálogo",
+            "page": "Autores"
+        },
+        "templateUrl": "ioteca_web_apps/catalogo_web/views/autores/form.html"
+    }
+
+}]);

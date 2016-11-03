@@ -1,47 +1,49 @@
+
+
+
+
+
+/*
 app
-    .provider('router', function($stateProvider) {
-    var urlCollection;
-    this.$get = function($http, $state) {
-        return {
-            setUpRoutes: function() {
-                $http.get(urlCollection).success(function(collection) {
-                    //console.log('collection::' + JSON.stringify(collection));
-                    for (var routeName in collection) {
-                        if (!$state.get(routeName)) {
-                            $stateProvider.state(routeName, collection[routeName]);
-                        }
-                    }
-                });
+    .config(function($stateProvider, $urlRouterProvider, ROUTERS) {
+        var collectionr = localStorage.getItem("collection");
+        var routersStorage = JSON.parse(collectionr);
+        console.log('routersStorage::' + JSON.stringify(routersStorage));
+
+        // routersStorage.forEach(function(collection) { // para cargar del localStorage
+        ROUTERS.forEach(function(collection) {
+            for (var routeName in collection) {
+                $stateProvider.state(routeName, collection[routeName]);
             }
-        };
-    };
-    this.setCollectionUrl = function(url) {
-        urlCollection = url;
-    };
-});
+        });
+    });
 
 app
-    .run(function(router) {
-        // no recupera el foco porque el run se genera después del config
-        //router.setUpRoutes();
-    })
-    .config(function($stateProvider, $urlRouterProvider, ROUTERS2, routerProvider) {
-        collection = ROUTERS2;
+
+    .config(function($stateProvider, $urlRouterProvider, ROUTERS2) {
+    var collectionr = localStorage.getItem("collection");
+    var collection = JSON.parse(collectionr);
+    
+
+    console.log('collection::' + JSON.stringify(collection));
+    console.log('ROUTERS2::' + JSON.stringify(ROUTERS2));
+
+    //collection = ROUTERS2;
+
+    ROUTERS2.forEach(function(collection) {
+
         for (var routeName in collection) {
             //if (!$state.get(routeName)) {
             $stateProvider.state(routeName, collection[routeName]); // $stateProvider.state debe generarse aqui para no perder el foco
             //}
         }
 
-        //routerProvider.setCollectionUrl('routeCollection.json');
-    })
+    });
+
+    //
+})
 
 ;
-
-
-
-
-/*
 
 app
     .provider("userService", function() {
