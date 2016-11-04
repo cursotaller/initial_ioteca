@@ -43,7 +43,7 @@ class AutorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Autor
-        # fields = ('url', 'username', 'email', 'is_staff')
+        fields = '__all__'
 
 
 class AutorViewSet(ModelPagination, viewsets.ModelViewSet):

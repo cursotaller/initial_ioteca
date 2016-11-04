@@ -7,9 +7,13 @@ from ioteca_service_apps.catalogo.models.categoria import Categoria
 
 
 class CategoriaSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Categoria
-        # fields = ('url', 'username', 'email', 'is_staff')
+        fields = '__all__'
+        # fields = ('id', 'codigo', 'nombre', 'estado',)
+        # read_only_fields = ('id',)
+        # exclude = ('users',)
 
 
 class CategoriaViewSet(viewsets.ModelViewSet):

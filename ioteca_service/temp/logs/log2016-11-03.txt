@@ -1,3 +1,12 @@
 [2016-11-03 15:27:49] [INFO] [ioteca_service_apps.auths_api.user_view:77] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
 [2016-11-03 15:30:54] [INFO] [ioteca_service_apps.auths_api.user_view:77] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
 [2016-11-03 15:38:05] [INFO] [ioteca_service_apps.auths_api.user_view:77] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
+[2016-11-03 21:46:45] [INFO] [ioteca_service_apps.auths_api.user_view:77] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
+[2016-11-03 21:48:46] [INFO] [ioteca_service_apps.auths_api.user_view:77] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
+[2016-11-03 21:49:18] [INFO] [ioteca_service_apps.auths_api.user_view:77] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
+[2016-11-03 21:49:23] [INFO] [ioteca_service_apps.auths_api.user_view:77] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
+[2016-11-03 21:49:51] [INFO] [ioteca_service_apps.auths_api.user_view:77] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
+[2016-11-03 21:58:28] [INFO] [ioteca_service_apps.auths_api.user_view:78] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated
+[2016-11-03 21:58:52] [INFO] [ioteca_service_apps.auths_api.menu_view:55] [/api/auths/menus/?page=1&page_size=5] [127.0.0.1] [admin] [GET] !!Writing in log file!!
+[2016-11-03 21:58:52] [INFO] [ioteca_service_apps.auths_api.menu_view:55] [/api/auths/menus/?page=1&page_size=5] [127.0.0.1] [admin] [GET] !!Writing in log file!!
+[2016-11-03 22:00:25] [INFO] [ioteca_service_apps.auths_api.user_view:78] [/api/auths/localuserinfo/] [127.0.0.1] [admin] [GET] User is authenticated

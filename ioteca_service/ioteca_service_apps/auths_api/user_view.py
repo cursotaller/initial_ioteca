@@ -26,6 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
+        fields = '__all__'
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -50,7 +51,7 @@ class UserInfoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        exclude = ['password', ]
+        exclude = ('password', )
 
 
 class LocalUserInfoView(APIView):

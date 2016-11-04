@@ -50,6 +50,7 @@ class MenuInfoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Menu
+        fields = '__all__'
         # fields = ('id', 'module', 'title', 'type', 'menu_items')
 
     def to_representation(self, obj):
