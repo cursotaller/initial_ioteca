@@ -6,6 +6,7 @@ from .menu_view import MenuViewSet
 from .user_view import UserViewSet, LocalUserInfoView
 from .api_user_menu import UserMenuView
 from .api_logs import LogView
+from .api_routers import RouterView
 
 
 # from .api_views import load_menu
@@ -26,6 +27,8 @@ urlpatterns = [
     # url(r'^load_menu/$', load_menu, name='load_menu'),
     url(r'^usermenu/$', UserMenuView.as_view()),
     url(r'^logs/(?P<param>[^/]+)/$', LogView.as_view()),
+
+    url(r'^routers/$', RouterView.as_view()),
 
     url(r'^', include(router.urls)),
 ]

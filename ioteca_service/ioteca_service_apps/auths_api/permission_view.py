@@ -19,6 +19,7 @@ class ContentTypeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ContentType
+        fields = '__all__'
 
 
 class PermissionSerializer(serializers.ModelSerializer):
@@ -27,6 +28,7 @@ class PermissionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Permission
+        fields = '__all__'
 
 
 class PermissionViewSet(ModelPagination, viewsets.ModelViewSet):

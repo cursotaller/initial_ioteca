@@ -2,7 +2,7 @@ app
 // =========================================================================
 // Show View and Delete Autor 
 // =========================================================================
-    .controller("AutorCtrl", function($scope, $state, $stateParams, catalogoService, $window, $mdDialog, $log, toastr) {
+    .controller("AutorCtrl", function($scope, $state, $stateParams, catalogoService, $window, $mdDialog, $log, toastr, $filter) {
     //Valores iniciales
     $scope.fields = 'nombre';
     var params = {};
@@ -51,13 +51,13 @@ app
 // =========================================================================
 // Create and Update Autor
 // =========================================================================
-.controller("AutorSaveCtrl", function($scope, $state, $stateParams, catalogoService, $window, $mdDialog, $log, toastr) {
+.controller("AutorSaveCtrl", function($scope, $state, $stateParams, catalogoService, $window, $mdDialog, $log, toastr, $filter) {
     //Valores iniciales
     $scope.autor = {};
-
     $scope.sel = function() {
         catalogoService.Autor.get({ id: $stateParams.id }, function(r) {
             $scope.autor = r;
+            if (r.fecha_nac) $scope.autor.fecha_nacT = new Date($filter('date')(r.fecha_nac));
         }, function(err) {
             $log.log("Error in get:" + JSON.stringify(err));
             toastr.error(err.data.detail, err.status + ' ' + err.statusText);
@@ -68,6 +68,9 @@ app
     }
 
     $scope.save = function() {
+        if ($scope.autor.fecha_nacT) {
+            $scope.autor.fecha_nac = $filter('date')(new Date($scope.autor.fecha_nacT), 'yyyy-MM-dd');
+        }
         if ($scope.autor.id) {
             catalogoService.Autor.update({ id: $scope.autor.id }, $scope.autor, function(r) {
                 $log.log("r: " + JSON.stringify(r));
@@ -87,12 +90,13 @@ app
                 toastr.error(err.data.detail, err.status + ' ' + err.statusText);
             });
         }
+
     };
 
     $scope.cancel = function() {
         $state.go('catalogo.catalogo.autores');
 
 
-        
+
     };
 });

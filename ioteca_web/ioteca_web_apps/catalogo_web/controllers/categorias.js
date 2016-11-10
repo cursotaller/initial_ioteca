@@ -9,6 +9,9 @@ app
     $scope.lista = [];
     $scope.categoria = {};
 
+    
+    //$window.location = "#" + $location.path();
+
     $scope.list = function(params) {
         $scope.isLoading = true;
         catalogoService.Categoria.query(params, function(r) {

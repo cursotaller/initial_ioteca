@@ -6,6 +6,7 @@ class LibroSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Libro
+        fields = '__all__'
 
 
 class LibroViewSet(viewsets.ModelViewSet):

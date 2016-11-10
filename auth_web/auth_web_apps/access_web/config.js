@@ -1,9 +1,8 @@
-﻿
-var authsUrl = 'http://localhost:9001/api/auths/';
+﻿var authsUrl = 'http://localhost:9001/api/auths/';
 
 
 var config = {
-    
+
     authsUrl: authsUrl,
 
 
@@ -11,4 +10,8 @@ var config = {
 
 app
 
-.value('config_access', config);
+    .value('config_access', config);
+
+app
+
+    .constant('CONFIG', config);

@@ -56,6 +56,9 @@ class Menu(models.Model):
     description = models.TextField(
         _('description'), null=True, blank=True
     )
+    router_json = models.TextField(
+        _('router json'), null=True, blank=True
+    )
     permission = models.ForeignKey(
         Permission, verbose_name=_('permission'), null=True, blank=True,
         help_text=_(
