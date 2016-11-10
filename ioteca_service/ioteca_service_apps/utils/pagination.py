@@ -63,6 +63,7 @@ class StandardResultsSetPagination(pagination.PageNumberPagination):
                 'previous': self.anterior(),
                 'range': self.range(),
                 'page_size': self.page_size,
+                'user': self.request.user.username
             },
             'results': data
         })
@@ -71,7 +72,7 @@ class StandardResultsSetPagination(pagination.PageNumberPagination):
 class ModelPagination():
     pagination_class = StandardResultsSetPagination
     page = StandardResultsSetPagination
-    default_fields = 'codename'
+    default_fields = 'id'
 
     def search(self, fields, term):
         query = Q()

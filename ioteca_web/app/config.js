@@ -28,7 +28,7 @@ app
 
     authService.fillAuthData();
     if (authService.authentication.isAuth === false) {
-        //$window.location = loginUrl;
+        $window.location = loginUrl;
     }
     /******************************************************************/
 

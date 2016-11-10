@@ -45,11 +45,29 @@ class AutorSerializer(serializers.ModelSerializer):
         model = Autor
         fields = '__all__'
 
+from rest_framework import pagination
+
+
+class LargeResultsSetPagination(pagination.PageNumberPagination):
+    page_size = 4
+    page_size_query_param = 'page_size'
+    max_page_size = 10000
+
 
 class AutorViewSet(ModelPagination, viewsets.ModelViewSet):
     queryset = Autor.objects.all()
     serializer_class = AutorSerializer
     permission_classes = [ModelPermission, ]
+    #permission_replace_by_model = 'cat.autor2'
+    #pagination_class = LargeResultsSetPagination
+
+    def get_queryset(self):
+
+        search = self.request.query_params.get('query', None)
+        if search:
+            print ('search=', search)
+            self.queryset = Autor.objects.filter(nombre__icontains=search)
+        return self.queryset
 
     """
     def get_queryset(self):
